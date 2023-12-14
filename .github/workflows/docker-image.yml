@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file .devcontainer/Dockerfile --tag jamestogethernz/py311-gcloud-dev:$(date +%s)
 
     # Log in to Docker Hub
     - name: Login to Docker Hub
