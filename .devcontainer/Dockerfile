@@ -4,19 +4,20 @@
 #-------------------------------------------------------------------------------------------------------------
 
 # Update the VARIANT arg in devcontainer.json to pick a Python version: 3, 3.8, 3.7, 3.6 
-# To fully customize the contents of this image, use the following Dockerfile instead:
-# https://github.com/microsoft/vscode-dev-containers/tree/v0.117.1/containers/python-3/.devcontainer/base.Dockerfile
 ARG VARIANT="3"
 FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
-    && apt-get -y install apt-transport-https ca-certificates gnupg \
-    && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
-    && apt-get update && apt-get -y install google-cloud-sdk \
+RUN apt-get update \
+    && apt-get -y install --no-install-recommends apt-transport-https ca-certificates gnupg \
+    && echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
+    && curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
+    && apt-get update \
+    && apt-get -y install --no-install-recommends google-cloud-sdk \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
-    
+
 ENV DEBIAN_FRONTEND=dialog
