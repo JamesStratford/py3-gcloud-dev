@@ -5,11 +5,7 @@ A setup for working with cloud tools in a vscode or gitpod container.
 
 ## Tools Installed
 
-- AWS CLI
-- AWS SAM CLI
 - gcloud CLI
-- Ansible
-- Terraform
 
 ## VS Code
 
