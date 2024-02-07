@@ -21,7 +21,8 @@
 				"github.vscode-github-actions",
 				"GitHub.copilot",
 				"googlecloudtools.cloudcode",
-				"ms-toolsai.jupyter"
+				"ms-toolsai.jupyter",
+				"ms-python.black-formatter"
 			]
 		}
 	}
