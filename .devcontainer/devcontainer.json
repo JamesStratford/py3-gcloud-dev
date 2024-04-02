@@ -3,11 +3,13 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
-		"args": { "VARIANT": "3.11" }
+		"args": {
+			"VARIANT": "3.11"
+		}
 	},
 	"customizations": {
 		"vscode": {
-			"settings": { 
+			"settings": {
 				"terminal.integrated.shell.linux": "/bin/bash",
 				"python.pythonPath": "/usr/local/bin/python",
 				"python.linting.enabled": true,
@@ -22,11 +24,14 @@
 				"GitHub.copilot",
 				"googlecloudtools.cloudcode",
 				"ms-toolsai.jupyter",
-				"ms-python.black-formatter"
+				"ms-python.black-formatter",
+				"lesgrieve.paste-indent",
+				"charliermarsh.ruff",
+				"redhat.vscode-yaml"
 			]
 		}
-	}
-	// "forwardPorts": [],
-	// "postCreateCommand": "pip3 install --user -r requirements.txt"
-	// "remoteUser": "vscode"
+	},
+	"forwardPorts": [],
+	"postCreateCommand": "pip install --upgrade pip && pip3 install poetry==1.8.2",
+	"remoteUser": "vscode"
 }
