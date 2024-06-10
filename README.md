@@ -13,4 +13,3 @@ A setup for working with cloud tools in a vscode or gitpod container.
 - Open repo folder with VS Code using *Run Remote-Containers: Open Folder in Container...*
 
 - Using Python 3 container from https://github.com/microsoft/vscode-dev-containers/tree/master/containers/python-3
-- Ubuntu 18.04 based

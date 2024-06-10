@@ -1,0 +1,33 @@
+{
+    "id": "py3-gcloud-dev",
+    "version": "1.0.0",
+    "name": "Python3 GCloud Dev Container",
+    "description": "Python3 Dev Container with GCloud CLI pre-installed",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Python version:",
+            "proposals": [
+                "3.12",
+                "3.12-bookworm",
+                "3.12-bullseye",
+                "3.11",
+                "3.11-bookworm",
+                "3.11-bullseye",
+                "3.11-buster",
+                "3.10",
+                "3.10-bookworm",
+                "3.10-bullseye",
+                "3.10-buster",
+                "3.9",
+                "3.9-bookworm",
+                "3.9-bullseye",
+                "3.9-buster"
+            ],
+            "default": "3.11"
+        }
+    },
+    "platforms": [
+        "Any"
+    ]
+}
