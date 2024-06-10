@@ -16,8 +16,8 @@ jobs:
     # Build the Docker image
     - name: Build the Docker image
       run: |
-        docker build . --file .devcontainer/Dockerfile --tag jamestogethernz/py311-gcloud-dev:${{ github.sha }}
-        docker tag jamestogethernz/py311-gcloud-dev:${{ github.sha }} jamestogethernz/py311-gcloud-dev:latest
+        docker build . --file .devcontainer/Dockerfile --tag jamestogethernz/py3-gcloud-dev:${{ github.sha }}
+        docker tag jamestogethernz/py3-gcloud-dev:${{ github.sha }} jamestogethernz/py3-gcloud-dev:latest
     # Log in to Docker Hub
     - name: Login to Docker Hub
       uses: docker/login-action@v1
