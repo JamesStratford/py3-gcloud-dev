@@ -29,3 +29,4 @@ jobs:
     - name: Push image to Docker Hub
       run: |
         docker push jamestogethernz/py3-gcloud-dev:${{ github.sha }}
+        docker push jamestogethernz/py3-gcloud-dev:latest
