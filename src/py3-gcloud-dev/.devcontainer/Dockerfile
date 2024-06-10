@@ -18,13 +18,14 @@ RUN echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /et
     && curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 
 # Add Kubernetes repository
-RUN echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list \
-    && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+RUN echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list \
+    && curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
 # Install packages
 RUN apt-get update \
     && apt-get install -y google-cloud-sdk \
     && apt install -y nodejs npm \
+    && apt-get install -y kubelet kubeadm kubectl \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
