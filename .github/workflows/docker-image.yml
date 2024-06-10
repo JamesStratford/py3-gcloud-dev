@@ -7,15 +7,16 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
+
+    # Build the Docker image
     - name: Build the Docker image
-      run: docker build . --file .devcontainer/Dockerfile --tag jamestogethernz/py311-gcloud-dev:${{ github.sha }}
+      run: |
+        docker build ./src/py3-gcloud-dev/.devcontainer --file ./src/py3-gcloud-dev/.devcontainer/Dockerfile --tag jamestogethernz/py311-gcloud-dev:${{ github.sha }}
 
     # Log in to Docker Hub
     - name: Login to Docker Hub
@@ -26,5 +27,5 @@ jobs:
 
     # Push the image to Docker Hub
     - name: Push image to Docker Hub
-      run: docker push jamestogethernz/py311-gcloud-dev:${{ github.sha }}
-      
+      run: |
+        docker push jamestogethernz/py311-gcloud-dev:${{ github.sha }}
