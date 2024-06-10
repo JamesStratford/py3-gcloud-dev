@@ -4,7 +4,7 @@
         "dockerfile": "Dockerfile",
         "context": "..",
         "args": {
-            "IMAGE_VARIANT": "${variant:imageVariant}"
+            "VARIANT": "${variant:imageVariant}"
         }
     },
     "customizations": {

@@ -1,5 +1,11 @@
-ARG IMAGE_VARIANT="3.11-bullseye"
-FROM mcr.microsoft.com/vscode/devcontainers/python:0-${IMAGE_VARIANT}
+#-------------------------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
+#-------------------------------------------------------------------------------------------------------------
+
+# Update the VARIANT arg in devcontainer.json to pick a Python version: 3, 3.8, 3.7, 3.6 
+ARG VARIANT="3.11-bullseye"
+FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
