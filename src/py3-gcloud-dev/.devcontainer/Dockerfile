@@ -1,5 +1,5 @@
 ARG IMAGE_VARIANT="3.11-bullseye"
-FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
+FROM mcr.microsoft.com/vscode/devcontainers/python:0-${IMAGE_VARIANT}
 
 ENV DEBIAN_FRONTEND=noninteractive
 

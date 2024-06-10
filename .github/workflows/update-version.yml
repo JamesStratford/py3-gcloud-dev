@@ -19,7 +19,7 @@ jobs:
       # Setup Node.js environment
       - uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '20'
       
       # Install npm dependencies (if your project requires)
       - run: npm install
