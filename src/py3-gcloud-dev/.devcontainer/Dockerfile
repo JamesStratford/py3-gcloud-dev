@@ -35,8 +35,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pipx install poetry \
-    && pipx install keyring \
-    && keyring --disable \
+    && chmod -R 777 /usr/local/py-utils/venvs/poetry \
     && poetry self add keyrings.google-artifactregistry-auth
 
 ENV DEBIAN_FRONTEND=dialog
