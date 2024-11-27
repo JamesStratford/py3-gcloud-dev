@@ -39,3 +39,4 @@ RUN pipx install poetry \
     && poetry self add keyrings.google-artifactregistry-auth
 
 ENV DEBIAN_FRONTEND=dialog
+ENV HOST=0.0.0.0
