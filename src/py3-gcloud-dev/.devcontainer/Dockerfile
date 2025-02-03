@@ -39,6 +39,7 @@ RUN pipx install poetry \
     && poetry self add keyrings.google-artifactregistry-auth
 
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
+    && export PATH="${HOME}/.local/bin:${PATH}" \
     && uv tool install keyring --with keyrings.google-artifactregistry-auth
 
 ENV DEBIAN_FRONTEND=dialog
