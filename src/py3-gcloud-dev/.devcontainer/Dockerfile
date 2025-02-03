@@ -34,6 +34,7 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+USER vscode
 RUN pipx install poetry \
     && chmod -R 777 /usr/local/py-utils/venvs/poetry \
     && poetry self add keyrings.google-artifactregistry-auth
@@ -41,8 +42,11 @@ RUN pipx install poetry \
 ENV HOME=/home/vscode
 ENV PATH="${HOME}/.local/bin:${PATH}"
 
+
+# Now install uv and perform other actions as vscode
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
     && uv tool install keyring --with keyrings.google-artifactregistry-auth
 
+USER root
 ENV DEBIAN_FRONTEND=dialog
 ENV HOST=0.0.0.0
