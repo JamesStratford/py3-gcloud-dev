@@ -38,8 +38,10 @@ RUN pipx install poetry \
     && chmod -R 777 /usr/local/py-utils/venvs/poetry \
     && poetry self add keyrings.google-artifactregistry-auth
 
+ENV HOME=/home/vscode
+ENV PATH="${HOME}/.local/bin:${PATH}"
+
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
-    && export PATH="${HOME}/.local/bin:${PATH}" \
     && uv tool install keyring --with keyrings.google-artifactregistry-auth
 
 ENV DEBIAN_FRONTEND=dialog
