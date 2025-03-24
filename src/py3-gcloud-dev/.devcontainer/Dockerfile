@@ -43,9 +43,12 @@ ENV HOME=/home/vscode
 ENV PATH="${HOME}/.local/bin:${PATH}"
 
 
-# Now install uv and perform other actions as vscode
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
     && uv tool install keyring --with keyrings.google-artifactregistry-auth
+
+ENV UV_KEYRING_PROVIDER=subprocess
+
+ENV UV_INDEX_PRIVATE_REGISTRY_USERNAME=oauth2accesstoken
 
 USER root
 ENV DEBIAN_FRONTEND=dialog
